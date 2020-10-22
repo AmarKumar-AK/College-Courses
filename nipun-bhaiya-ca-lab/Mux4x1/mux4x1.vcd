@@ -1,0 +1,40 @@
+$date
+	Fri Feb 15 16:44:00 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module mux4x1_tb $end
+$var wire 1 ! res $end
+$var reg 4 " in [3:0] $end
+$var reg 2 # sel [1:0] $end
+$scope module mux8x1_always_tb $end
+$var wire 4 $ in [3:0] $end
+$var wire 2 % sel [1:0] $end
+$var reg 1 ! result $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 %
+b1010 $
+b0 #
+b1010 "
+0!
+$end
+#10
+1!
+b1 #
+b1 %
+#20
+0!
+b10 #
+b10 %
+#30
+1!
+b11 #
+b11 %

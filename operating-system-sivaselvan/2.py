@@ -1,0 +1,53 @@
+import os
+# calculating arrival_time
+first=int(os.path.getctime("1.txt")%100000)
+second=int(os.path.getctime("2.txt")%100000)
+third=int(os.path.getctime("3.txt")%100000)
+fourth=int(os.path.getctime("4.txt")%100000)
+fifth=int(os.path.getctime("5.txt")%100000)
+arrival_time=[first,second,third,fourth,fifth]
+# calculating burst_time
+with open("1.txt",'r') as f1,open("2.txt",'r') as f2,open("3.txt",'r') as f3,open("4.txt",'r') as f4,open("5.txt",'r') as f5:
+    for l1 in f1:
+        len1=len(l1.split())
+    for l2 in f2:
+        len2=len(l2.split())
+    for l3 in f3:
+        len3=len(l3.split())
+    for l4 in f4:
+        len4=len(l4.split())
+    for l5 in f5:
+        len5=len(l5.split())
+burst_time=[len1,len2,len3,len4,len5]
+# zipping arrival_time and burst_time a/c arrival_time
+a_b=sorted(dict(zip(arrival_time,burst_time)).items())
+# putting pid, arrival_time and burst_time in temp1(list)
+temp1=[]
+for i in range(5):
+    temp1.append([i,a_b[i][0],a_b[i][1]])
+# completion_time of first arrived element
+temp2=[]
+temp2.append([temp1[0][0],temp1[0][1],temp1[0][2],temp1[0][1]+temp1[0][2]])
+temp1.pop(0)
+# completion_time of all
+for i in range(4):
+    temp=[]
+    for j in range(4-i):
+        if(temp2[i][3]>=temp1[j][1]):
+            temp.append(temp1[j])
+
+    if(temp==[]):
+        temp2.append(temp1.pop(0))
+        temp2[i+1].append(temp2[i+1][1]+temp2[i+1][2])
+    else:
+        temp.sort(key=lambda val:val[2])
+        temp2.append(temp[0])
+        temp1.remove(temp[0])
+        del temp
+        temp2[i+1].append(temp2[i+1][1]+temp2[i+1][2])
+# turn_around_time and wait_time respectively
+for i in range(5):
+    temp2[i].append(temp2[i][3]-temp2[i][1])
+    temp2[i].append(temp2[i][4]-temp2[i][2])
+print("[pid, arrival_time, burst_time, completion_time, turn_around_time, wait_time]")
+print(temp2)

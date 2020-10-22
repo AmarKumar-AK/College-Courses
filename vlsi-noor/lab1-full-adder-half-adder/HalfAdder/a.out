@@ -1,0 +1,56 @@
+#! /usr/bin/vvp
+:ivl_version "10.1 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x564eaa34f7e0 .scope module, "top" "top" 2 3;
+ .timescale 0 0;
+v0x564eaa36fd30_0 .var "a", 0 0;
+v0x564eaa36fdf0_0 .var "b", 0 0;
+v0x564eaa36fec0_0 .net "ca", 0 0, L_0x564eaa3701f0;  1 drivers
+v0x564eaa36ffc0_0 .net "sum", 0 0, L_0x564eaa370090;  1 drivers
+S_0x564eaa34f960 .scope module, "HA_0" "HalfAdder" 2 8, 3 1 0, S_0x564eaa34f7e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /OUTPUT 1 "sum"
+    .port_info 3 /OUTPUT 1 "ca"
+L_0x564eaa370090 .functor XOR 1, v0x564eaa36fd30_0, v0x564eaa36fdf0_0, C4<0>, C4<0>;
+L_0x564eaa3701f0 .functor AND 1, v0x564eaa36fd30_0, v0x564eaa36fdf0_0, C4<1>, C4<1>;
+v0x564eaa34fb50_0 .net "a", 0 0, v0x564eaa36fd30_0;  1 drivers
+v0x564eaa36fa90_0 .net "b", 0 0, v0x564eaa36fdf0_0;  1 drivers
+v0x564eaa36fb50_0 .net "ca", 0 0, L_0x564eaa3701f0;  alias, 1 drivers
+v0x564eaa36fbf0_0 .net "sum", 0 0, L_0x564eaa370090;  alias, 1 drivers
+    .scope S_0x564eaa34f7e0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564eaa36fd30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564eaa36fdf0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564eaa36fdf0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564eaa36fd30_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564eaa36fdf0_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x564eaa34f7e0;
+T_1 ;
+    %vpi_call 2 20 "$monitor", $time, "a = %b, b = %b, Sum = %b, ca = %b", v0x564eaa36fd30_0, v0x564eaa36fdf0_0, v0x564eaa36ffc0_0, v0x564eaa36fec0_0 {0 0 0};
+    %vpi_call 2 21 "$dumpfile", "HalfAdder.vcd" {0 0 0};
+    %vpi_call 2 22 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "HalfAdder_tb.v";
+    "HalfAdder.v";

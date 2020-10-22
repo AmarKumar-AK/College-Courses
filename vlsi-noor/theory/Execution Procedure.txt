@@ -1,0 +1,26 @@
+
+C:\iverilog>bin\iverilog -o HalfAdder HalfAdder.v
+
+C:\iverilog>bin\iverilog -o HalfAdder HalfAdder_tb.v
+
+C:\iverilog>bin\vvp HalfAdder
+VCD info: dumpfile HalfAdder.vcd opened for output.
+                   0a = 0, b = x, Sum = x, ca = 0
+                  10a = 0, b = 0, Sum = 0, ca = 0
+                  20a = 1, b = 0, Sum = 1, ca = 0
+                  30a = 1, b = 1, Sum = 0, ca = 1
+
+C:\iverilog>bin\gtkwave HalfAdder.vcd
+
+GTKWave Analyzer v3.3.0 (w)1999-2009 BSI
+
+[0] start time.
+[30] end time.
+Exiting.
+
+C:\iverilog>bin\gtkwave HalfAdder.vcd
+
+GTKWave Analyzer v3.3.0 (w)1999-2009 BSI
+
+[0] start time.
+[30] end time.

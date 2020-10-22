@@ -1,0 +1,2 @@
+VCD info: dumpfile FloatingPointAdder.vcd opened for output.
+Time =  0, a = 1000101111110011, b = 1101011101111111, Sum = 1101011101111111

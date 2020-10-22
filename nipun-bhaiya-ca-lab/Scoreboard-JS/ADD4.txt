@@ -1,0 +1,2 @@
+VCD info: dumpfile Adder.vcd opened for output.
+Time =  0, a =    19, b =    14, overflow = 0, Sum =    33

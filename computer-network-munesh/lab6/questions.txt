@@ -1,0 +1,89 @@
+Q1.Which of the following is true about templates.
+  1) Template is a feature of C++ that allows us to write one code for different data types.
+  2) We can write one function that can be used for all data types including user defined types. Like sort(), max(), min(), ..etc.
+  3) We can write one class or struct that can be used for all data types including user defined types. Like Linked List, Stack, Queue ..etc.
+  4) Template is an example of compile time polymorphism.
+
+Q2.Inline functions are useful when
+  1) Function is large with many nested loops
+  2) Function has many static variables
+  3) Function is small and we want to avoid function call overhead.
+  4) None of the above
+
+Q3.	A C++ code line ends with ___
+  1) A Semicolon (;)
+  2) A Fullstop(.)
+  3) A Comma (,)
+  4) A Slash (/)
+
+Q4.A class whos objects can not be created is known as _____
+  1) Absurd Class
+  2) Dead Class
+  3) Super Class
+  4) Abstract Class
+
+Q5.In C++ Program, inline fuctions are expanded during ____
+  1) Run Time
+  2) Compile Time
+  3) Debug Time
+  4) Coding Time
+
+Q6.Which of the STL containers store the elements contiguously (in adjecent memory locations)?
+  1) std::vector
+  2) std::list
+  3) std::map
+  4) std::set
+
+Q7.Each pass through a loop is called a/an
+  1) enumeration
+  2) iteration
+  3) culmination
+  4) pass through
+
+Q8.*ptr++ is equivalenet to:
+  1) ptr++
+  2) *ptr
+  3) ++*ptr
+  4) None of the above
+
+Q9.The conditional compilation
+  1) It is taken care of by the compiler
+  2) It is setting the compiler option conditionally
+  3) It is compiling a program based on a condition
+  4) none of above
+
+Q10.Originally ‘C’ was developed as:
+  1) System programming language
+  2) General purpose language
+  3) Data processing language
+  4) None of above
+
+Q11.Which of the following is not a file operation:
+  1) Repositioning
+  2) Truncating
+  3) Appending
+  4) None of above
+
+Q12.Which looping process checks the test condition at the end of the loop?
+  1) for
+  2) while
+  3) do-while
+  4) no looping process checks the test condition at the end
+
+Q13.Which of the following language is not supported by C++?
+  1) Exception Handling
+  2) Reflection
+  3) Operator Overloading
+  4) Namespaces
+
+Q14.The statement i++; is equivalent to
+  1) i = i + i;
+  2) i = i + 1;
+  3) i = i – 1;
+  4) i –;
+
+Q15.How do we define a constructor?
+  1) x~() {}
+  2) X() {}~
+  3) X() ~{}
+  4) ~X() {}

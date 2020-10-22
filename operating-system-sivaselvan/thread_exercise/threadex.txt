@@ -1,0 +1,21 @@
+    Dear Students
+    You may solve the following list using pthread support; you can take up these post trying out the basic codes discussed for multithreading in the class. (sum of n nos and matrix mult).
+
+     
+    Develop the following applications using multi-threading support:
+    (1) Generation of Prime Numbers upto a limit supplied as Command Line Parameter.
+    //done
+    (2) Computation of Mean, Median, Mode for an array of integers.
+    //done
+    (b) Read on Box Plots which is an excellent representation for data analysis which works on data medians and outliers. Construct a Box Plot for a given data (array of integers) supporting outlier as well.  (Additional Credits shall be awarded for graphical support for Box Plot Display)
+    (3) Implement Merge Sort and Quick Sort in a multihreaded fashion.
+    //done
+    (4) Estimation of PI Value using Monte carlo simulation technique (refer the internet for the method..) using threads. 
+    //done
+    (5) Computation of a Matrix Inverse using Determinant, Cofactor threads, etc.
+
+   (6) Implement a multi-threaded version of Binary Search with 4 threads. (assume no duplicates in the array)
+   //dpne
+   (7) Extend the earlier version of Binary Search to support search in array with duplicated elements and the function displaying the indexes of multiple occurrences of the search key.
+    //done
+    (8) Implement any two External Sorting Algorithms of your choice in a multithreaded fashion.

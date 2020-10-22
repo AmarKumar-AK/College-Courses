@@ -1,0 +1,10 @@
+Highway 110 is a two-lane north-south road that passes through a one-lane tunnel. A car can safely
+enter the tunnel if and only if there are no oncoming cars in the tunnel. To prevent accidents, sensors
+installed at each end of the tunnel notify a controller computer when cars arrive or depart the tunnel in
+either direction The controller uses the sensor input to control signal lights at either end of the tunnel.
+Show how to implement the controller program correctly using mutexes and condition variables. You
+may assume that each car is represented by a thread that calls Arrive() and Depart() functions in the
+controller, passing an argument indicating the direction of travel. You may also assume that Arrive()
+can safely stop the arriving car by changing the correct signal light to red and blocking the calling
+thread. Your solution should correctly handle rush hour, during which most cars approach the tunnel
+from the same direction. your solution should be free from starvation and deadlock

@@ -1,0 +1,520 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"></head><body><p>title: Advanced Computer Architecture<br>
+subtitle: Chapter 2 - Memory Hierarchy<br>
+class: image</p>
+
+<p></p><center><br>
+<img src="Chapter_2_files/pyramid.png" alt="Overview"><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Introduction<br>
+subtitle: Memory Hierarchy</p>
+
+<p>Memory hierarchy works because of the:</p>
+
+<ul>
+<li>Principle of Locality<br>
+<br>
+<ul>
+<li>Temporal Locality </li>
+<li>Spatial Locality</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p>title: Introduction<br>
+subtitle: Memory Speed</p>
+
+<p>Terminology for memory access times.</p>
+
+<pre class="prettyprint">| fractions of a second             |   metric name      |
+| --------------------------------- | ------------------ |
+| 0,000 000 000 000 001  [ ???nth ] | femtosecond [ fs ] |
+| 0,000 000 000 001 [ trillionth ]  | picosecond [ ps ]  |
+| 0,000 000 001 [ billionth ]       | nanosecond [ ns ]  |
+| 0,000 001 [ millionth ]           | microsecond [ µs ] |
+| 0,001 [ thousandth ]              | millisecond [ ms ] |
+| 0.01 [ hundredth ]                | centisecond [ cs ] |
+| 1.0                               | second [ s ]       |
+</pre>
+
+<hr>
+
+<p>title: Introduction<br>
+subtitle: Memory Hierarchy<br>
+class: image</p>
+
+<p></p><center><br>
+<img src="Chapter_2_files/memory_hiearchy.png" alt="Overview"><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Introduction<br>
+subtitle: Memory Hierarchy Pyramid<br>
+class: image</p>
+
+<p></p><center><br>
+<img src="Chapter_2_files/pyramid_hierarchy.png" alt="Overview"><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Introduction<br>
+subtitle: Processor Performance<br>
+class: image</p>
+
+<p></p><center><br>
+<img src="Chapter_2_files/performance.png" alt="Overview"><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Memory Hierarchies: A Quick Review<br>
+class: image</p>
+
+<p></p><center><br>
+<img src="Chapter_2_files/CacheFlowChart.png" alt="Overview"><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Memory Hierarchies: A Quick Review<br>
+class: image</p>
+
+<p></p><center><br>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/cache_generic.png"><img src="Chapter_2_files/cache_generic_small.png" alt=""></a><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Cache Design</p>
+
+<hr>
+
+<ul>
+<li>Addressing</li>
+<li>Size</li>
+<li>Mapping Function</li>
+<li>Replacement Algorithm</li>
+<li>Write Policy</li>
+<li>Block Size</li>
+<li>Number of Caches</li>
+</ul>
+
+<hr>
+
+<hr>
+
+<p>title: Cache Layout<br>
+class: image</p>
+
+<p></p><center><br>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/cache_layout.png"><img src="Chapter_2_files/cache_layout_small.png" alt=""></a><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Memory Hierarchies: A Quick Review<br>
+subtitle: Definitions</p>
+
+<hr>
+
+<ul>
+<li><strong><em>Cache Block</em></strong><br>
+<br>
+<ul>
+<li>The basic unit for cache storage. </li>
+<li>May contain multiple bytes/words of data.</li>
+</ul></li>
+<li><strong><em>Cache Line</em></strong><br>
+<br>
+<ul>
+<li>Same as cache block. </li>
+<li>Note that this is not the same thing as a “row” of cache.</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<h2> <footer class="source">Dr. Passos likes to call it a "Block" when it's in main memory and a "Line" when it is in cache (So ... therefore so will I).</footer></h2>
+
+<p>title: Memory Hierarchies: A Quick Review<br>
+subtitle: Definitions</p>
+
+<hr>
+
+<ul>
+<li><strong><em>Cache Set</em></strong><br>
+<br>
+<ul>
+<li>A “row” in the cache. </li>
+<li>The number of blocks per set is determined by the layout of the cache.</li>
+<li>Examples:<br>
+<br>
+<ul>
+<li>direct mapped</li>
+<li>set-associative</li>
+<li>fully associative</li>
+</ul></li>
+</ul></li>
+<li><strong><em>Tag</em></strong><br>
+<br>
+<ul>
+<li>A unique identiﬁer for a group of data. </li>
+<li>Because different regions of memory may be mapped into a block, the tag is used to differentiate between them.</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p>title: Memory Hierarchies: A Quick Review<br>
+subtitle: Definitions</p>
+
+<hr>
+
+<ul>
+<li><p><strong><em>Valid Bit</em></strong></p>
+
+<ul>
+<li>A bit of information that indicates whether the data in a block is valid (1) or not (0).</li>
+</ul></li>
+<li><h2><strong><em>Set Index</em></strong></h2></li>
+</ul>
+
+<pre>(Block address) MOD (Number of sets in cache)</pre>
+
+<hr>
+
+<hr>
+
+<p>title: Memory Hierarchies: A Quick Review<br>
+subtitle: Locating Data in Cache</p>
+
+<p>Given an address, we can determine whether the data at that memory location is in the cache.</p>
+
+<p><strong><em>1.</em></strong> Use the set index to determine which cache set the address should reside in.</p>
+
+<p><strong><em>2.</em></strong> For each block in the corresponding 
+cache set, compare the tag associated with that block to the tag from 
+the memory address. If there is a match, proceed to the next step. 
+Otherwise, the data is not in the cache.</p>
+
+<p><strong><em>3.</em></strong> For the block where the data was found, look at valid bit. If it is 1,the data is in the cache, otherwise it is not.</p>
+
+<hr>
+
+<p>title: Cache Mapping Example<br>
+subtitle: Assuming a cache like the following:</p>
+
+<hr>
+
+<ul>
+<li>Cache of 64k Bytes</li>
+<li>Cache block of 4 bytes<br>
+<br>
+<ul>
+<li>(i.e. cache is 16k or 2^14 lines of 4 bytes)</li>
+</ul></li>
+<li>16MB main memory</li>
+<li>24 bit address<br>
+<br>
+<ul>
+<li>(2^24 = 16MB)</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<hr>
+
+<p>title: Direct Mapping<br>
+subtitle:Overview</p>
+
+<ul>
+<li>Each block of main memory maps to only one cache line<br>
+<br>
+<ul>
+<li>i.e. if a block is in cache, it must be in one specific place</li>
+</ul></li>
+<li>Address is in two parts<br>
+<br>
+<ul>
+<li>Least Significant <code>w</code> bits identify unique word/byte</li>
+<li>Most Significant <code>s</code> bits specify one memory block</li>
+</ul></li>
+<li>The MSBs are split into a cache line field <code>r</code> and a tag of <code>s-r</code> (most significant)</li>
+</ul>
+
+<hr>
+
+<p>title: Direct Mapping<br>
+class: image</p>
+
+<p></p><center><br>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/direct_mapped.png"><img src="Chapter_2_files/direct_mapped_small.png" alt=""></a><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Direct Mapping<br>
+subtitle: Cache Line Table<br>
+class: image</p>
+
+<p></p><center><br>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/cache_line_table.png"><img src="Chapter_2_files/cache_line_table_small.png" alt=""></a><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Direct Mapping<br>
+subtitle: Address Structure</p>
+
+<p></p><center><p></p>
+
+<table>
+<tbody><tr>
+<td><img src="Chapter_2_files/dm_address_structure.png"></td><td>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/cache_size_reminder.png"><img src="Chapter_2_files/cache_size_reminder_small.png" alt=""></a></td>
+</tr>
+</tbody></table>
+
+<p></p></center><p></p>
+
+<p>Example:</p>
+
+<ul>
+<li>24 bit address</li>
+<li>2 bit byte identifier (4 byte block)</li>
+<li>22 bit block identifier<br>
+<br>
+<ul>
+<li>8 bit tag (=22-14)</li>
+<li>14 bit slot or line</li>
+</ul></li>
+<li>No two blocks in the same line have the same Tag field</li>
+<li>Check contents of cache by finding line and checking Tag</li>
+</ul>
+
+<hr>
+
+<p>title: Direct Mapping<br>
+subtitle: Address Structure</p>
+
+<p></p><center><br>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/dm_cache_organization.png"><img src="Chapter_2_files/dm_cache_organization_small.png" alt=""></a><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Direct Mapping<br>
+subtitle: Summary</p>
+
+<ul>
+<li>Address length = <code>(s + w)</code> bits</li>
+<li>Number of addressable units =<br>
+<br>
+<ul>
+<li><code>2^(s+w)</code> words or bytes</li>
+</ul></li>
+<li>Block size = line size = <code>2^w</code> words or bytes</li>
+<li>Number of blocks in main memory =<br>
+<br>
+<ul>
+<li><code>2^(s+w)/2^w = 2^s</code></li>
+</ul></li>
+<li>Number of lines in cache <code>= m = 2^r</code></li>
+<li>Size of tag = <code>(s – r)</code> bits</li>
+</ul>
+
+<hr>
+
+<p>title: Direct Mapping<br>
+subtitle: Pros and Cons</p>
+
+<ul>
+<li>Simple</li>
+<li>Inexpensive</li>
+<li>Fixed location for given block<br>
+<br>
+<ul>
+<li>If a program accesses 2 blocks that map to the same line repeatedly, cache misses are very high</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p>title: Direct Mapping<br>
+subtitle: Different Angle</p>
+
+<p>Given a problem with:</p>
+
+<ul>
+<li>memory size: <code>M</code></li>
+<li>cache size: <code>C</code></li>
+<li><p>block size: <code>B</code></p></li>
+<li><p>Number of blocks in memory: <code>b = M/B</code></p></li>
+<li>Number of cache lines:<code>L = C/B</code></li>
+<li>Line size:<code>B</code></li>
+<li>Number of bits in a memory address:<code>log M</code> (base 2)</li>
+</ul>
+
+<p>Direct mapping consists of Tag , Line number, Byte offset</p>
+
+<hr>
+
+<p>title: Associative Mapping<br>
+subtitle: Overview</p>
+
+<ul>
+<li>A main memory block can load into any line of cache</li>
+<li>Memory address is interpreted as tag and word</li>
+<li>Tag uniquely identifies block of memory</li>
+<li>Every line’s tag is examined for a match</li>
+<li>Cache searching gets expensive</li>
+</ul>
+
+<hr>
+
+<p>title: Associative Mapping<br>
+subtitle: Cache to Main Memory</p>
+
+<p></p><center><br>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/am_cache_to_memory.png"><img src="Chapter_2_files/am_cache_to_memory_small.png" alt=""></a><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Fully Associative<br>
+subtitle: Cache Organization</p>
+
+<p></p><center><br>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/am_cache_organization.png"><img src="Chapter_2_files/am_cache_organization_small.png" alt=""></a><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Fully Associative<br>
+subtitle: Address Structure</p>
+
+<p></p><center><p></p>
+
+<table>
+<tbody><tr>
+<td><img src="Chapter_2_files/am_address_structure.png"></td><td>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/cache_size_reminder.png"><img src="Chapter_2_files/cache_size_reminder_small.png" alt=""></a></td>
+</tr>
+</tbody></table>
+
+<p></p></center><p></p>
+
+<ul>
+<li>22 bit tag stored with each 32 bit block of data</li>
+<li>Compare tag field with tag entry in cache to check for hit</li>
+<li>Least significant 2 bits of address identify which byte is required from the 32 bit data block</li>
+</ul>
+
+<hr>
+
+<p>title: Associative Mapping<br>
+subtitle: Summary</p>
+
+<ul>
+<li>Address length = <code>(s + w)</code> bits</li>
+<li>Number of addressable units = 2s+w words or bytes</li>
+<li>Block size = line size = <code>2^w</code> words or bytes</li>
+<li>Number of blocks in main memory =<br>
+<code>2^(s+w)/2^w = 2^s</code></li>
+<li>Number of lines in cache = undetermined</li>
+<li>Size of tag = <code>s</code> bits</li>
+</ul>
+
+<hr>
+
+<p>title: Associative Mapping (Parking Lot Analogy)</p>
+
+<p><a href="http://cs.mwsu.edu/~terry/courses/5133/lectures/fully_associative.html">Parking Lot Example</a></p>
+
+<hr>
+
+<p>title: Set Associative Mapping</p>
+
+<ul>
+<li>Cache is divided into a number of sets</li>
+<li>Each set contains a number of lines</li>
+<li>A given block maps to any line in a given set<br>
+<br>
+<ul>
+<li>e.g. Block <code>B</code> can be in any line of set <code>i</code></li>
+</ul></li>
+<li>e.g. 2 lines per set<br>
+<br>
+<ul>
+<li>2 way set associative mapping</li>
+<li>A given block can be in one of 2 lines in only one set</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p>title: Set Associative<br>
+subtitle: Cache Organization</p>
+
+<p></p><center><br>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/sa_cache_organization.png"><img src="Chapter_2_files/sa_cache_organization_small.png" alt=""></a><br>
+</center><p></p>
+
+<hr>
+
+<p>title: Set Associative<br>
+subtitle: Address Structure</p>
+
+<p></p><center><p></p>
+
+<table>
+<tbody><tr>
+<td><img src="Chapter_2_files/sa_address_structure.png"></td><td>
+<a style="text-decoration: none;" class="fancybox" rel="group" href="http://cs.mwsu.edu/~terry/courses/5133/lectures/slide_images/Chapter_2/cache_size_reminder.png"><img src="Chapter_2_files/cache_size_reminder_small.png" alt=""></a></td>
+</tr>
+</tbody></table>
+
+<p></p></center><p></p>
+
+<ul>
+<li>Use set field to determine cache set to look in</li>
+<li>Compare tag field to see if we have a hit</li>
+</ul>
+
+<hr>
+
+<p>title: Set Associative<br>
+subtitle: Summary</p>
+
+<ul>
+<li>Address length = <code>(s + w)</code> bits</li>
+<li>Number of addressable units = <code>2^(s+w)</code> words or bytes</li>
+<li>Block size = line size = <code>2^w</code> words or bytes</li>
+<li>Number of blocks in main memory =<br>
+<code>2^(s+w)/2^w = 2^s</code></li>
+<li>Number of lines in set = <code>k</code></li>
+<li>Number of sets = <code>v</code> = <code>2^d</code></li>
+<li>Number of lines in cache = <code>kv</code> = <code>k * 2^d</code></li>
+<li>Size of cache = <code>k * 2^(d+w)</code></li>
+<li>Size of tag = <code>(s – d)</code> bits</li>
+</ul>
+
+<hr>
+
+<p>title: Associative Mapping (Parking Lot Analogy)</p>
+
+<p><a href="http://cs.mwsu.edu/~terry/courses/5133/lectures/set_associative.html">Parking Lot Example</a></p>
+
+<hr>
+
+<p>title: Replacement Algorithms</p>
+
+<p>NEXT TIME</p>
+</body></html>
