@@ -1,0 +1,8 @@
+Hello world by thread number 1 of threads 8
+Hello world by thread number 3 of threads 8
+Hello world by thread number 4 of threads 8
+Hello world by thread number 0 of threads 8
+Hello world by thread number 2 of threads 8
+Hello world by thread number 5 of threads 8
+Hello world by thread number 6 of threads 8
+Hello world by thread number 7 of threads 8

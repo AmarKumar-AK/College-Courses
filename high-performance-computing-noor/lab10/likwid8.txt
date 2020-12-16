@@ -1,0 +1,32 @@
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+CPU type:	Intel Kabylake processor
+CPU clock:	2.71 GHz
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Group 1: MEM
++-----------------------+---------+------------+
+|         Event         | Counter |   Core 1   |
++-----------------------+---------+------------+
+|   INSTR_RETIRED_ANY   |  FIXC0  | 1118512704 |
+| CPU_CLK_UNHALTED_CORE |  FIXC1  | 1777778653 |
+|  CPU_CLK_UNHALTED_REF |  FIXC2  | 1572335449 |
+|       DRAM_READS      | MBOX0C1 |  106481605 |
+|      DRAM_WRITES      | MBOX0C2 |   35939222 |
++-----------------------+---------+------------+
+
++-----------------------------------+-----------+
+|               Metric              |   Core 1  |
++-----------------------------------+-----------+
+|        Runtime (RDTSC) [s]        |    3.3486 |
+|        Runtime unhalted [s]       |    0.6555 |
+|            Clock [MHz]            | 3066.3145 |
+|                CPI                |    1.5894 |
+|  Memory load bandwidth [MBytes/s] | 2035.1135 |
+|  Memory load data volume [GBytes] |    6.8148 |
+| Memory evict bandwidth [MBytes/s] |  686.8829 |
+| Memory evict data volume [GBytes] |    2.3001 |
+|    Memory bandwidth [MBytes/s]    | 2721.9964 |
+|    Memory data volume [GBytes]    |    9.1149 |
++-----------------------------------+-----------+
+

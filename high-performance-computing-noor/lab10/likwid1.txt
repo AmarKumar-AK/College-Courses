@@ -1,0 +1,30 @@
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+CPU type:	Intel Kabylake processor
+CPU clock:	2.71 GHz
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Group 1: BRANCH
++------------------------------+---------+-----------+
+|             Event            | Counter |   Core 1  |
++------------------------------+---------+-----------+
+|       INSTR_RETIRED_ANY      |  FIXC0  |  82973722 |
+|     CPU_CLK_UNHALTED_CORE    |  FIXC1  | 134341113 |
+|     CPU_CLK_UNHALTED_REF     |  FIXC2  | 122293233 |
+| BR_INST_RETIRED_ALL_BRANCHES |   PMC0  |  16663359 |
+| BR_MISP_RETIRED_ALL_BRANCHES |   PMC1  |    973814 |
++------------------------------+---------+-----------+
+
++----------------------------+-----------+
+|           Metric           |   Core 1  |
++----------------------------+-----------+
+|     Runtime (RDTSC) [s]    |    3.0257 |
+|    Runtime unhalted [s]    |    0.0495 |
+|         Clock [MHz]        | 2978.7855 |
+|             CPI            |    1.6191 |
+|         Branch rate        |    0.2008 |
+|  Branch misprediction rate |    0.0117 |
+| Branch misprediction ratio |    0.0584 |
+|   Instructions per branch  |    4.9794 |
++----------------------------+-----------+
+

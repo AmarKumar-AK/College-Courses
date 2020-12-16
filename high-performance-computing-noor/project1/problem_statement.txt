@@ -1,0 +1,9 @@
+A pizza company wants to open its delivery centres across a very big city.
+The challenges they will face is that they need to analyse areas from where
+pizza is being ordered frequently. 
+They need to figure out the locations for the pizza stores within all
+these areas in order to keep the distance between the store and delivery
+points minimum.
+Resolving these challenges includes a lot of analysis and 
+mathematics. we would learn here about how clustering can provide a 
+meaningful and easy method of sorting out such real life challenges.

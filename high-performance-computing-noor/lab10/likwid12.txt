@@ -1,0 +1,33 @@
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+CPU type:	Intel Kabylake processor
+CPU clock:	2.71 GHz
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Group 1: L2
++-----------------------+---------+------------+
+|         Event         | Counter |   Core 1   |
++-----------------------+---------+------------+
+|   INSTR_RETIRED_ANY   |  FIXC0  | 1257821644 |
+| CPU_CLK_UNHALTED_CORE |  FIXC1  | 1612802392 |
+|  CPU_CLK_UNHALTED_REF |  FIXC2  | 1444820486 |
+|    L1D_REPLACEMENT    |   PMC0  |   20427606 |
+|      L1D_M_EVICT      |   PMC1  |    6504745 |
+| ICACHE_64B_IFTAG_MISS |   PMC2  |   31336416 |
++-----------------------+---------+------------+
+
++--------------------------------+-----------+
+|             Metric             |   Core 1  |
++--------------------------------+-----------+
+|       Runtime (RDTSC) [s]      |    3.3849 |
+|      Runtime unhalted [s]      |    0.5947 |
+|           Clock [MHz]          | 3027.2623 |
+|               CPI              |    1.2822 |
+|  L2D load bandwidth [MBytes/s] |  386.2308 |
+|  L2D load data volume [GBytes] |    1.3074 |
+| L2D evict bandwidth [MBytes/s] |  122.9871 |
+| L2D evict data volume [GBytes] |    0.4163 |
+|     L2 bandwidth [MBytes/s]    | 1101.7047 |
+|     L2 data volume [GBytes]    |    3.7292 |
++--------------------------------+-----------+
+

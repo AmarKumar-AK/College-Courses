@@ -1,0 +1,32 @@
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+CPU type:	Intel Kabylake processor
+CPU clock:	2.71 GHz
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Group 1: FLOPS_SP
++------------------------------------------+---------+------------+
+|                   Event                  | Counter |   Core 1   |
++------------------------------------------+---------+------------+
+|             INSTR_RETIRED_ANY            |  FIXC0  |  908722963 |
+|           CPU_CLK_UNHALTED_CORE          |  FIXC1  | 1120014397 |
+|           CPU_CLK_UNHALTED_REF           |  FIXC2  | 1040666155 |
+| FP_ARITH_INST_RETIRED_128B_PACKED_SINGLE |   PMC0  |   32347597 |
+|    FP_ARITH_INST_RETIRED_SCALAR_SINGLE   |   PMC1  |   48298205 |
+| FP_ARITH_INST_RETIRED_256B_PACKED_SINGLE |   PMC2  |     123268 |
++------------------------------------------+---------+------------+
+
++----------------------+-----------+
+|        Metric        |   Core 1  |
++----------------------+-----------+
+|  Runtime (RDTSC) [s] |    3.2950 |
+| Runtime unhalted [s] |    0.4130 |
+|      Clock [MHz]     | 2918.5340 |
+|          CPI         |    1.2325 |
+|     SP [MFLOP/s]     |   54.2266 |
+|   AVX SP [MFLOP/s]   |    0.2993 |
+|   Packed [MUOPS/s]   |    9.8547 |
+|   Scalar [MUOPS/s]   |   14.6582 |
+|  Vectorization ratio |   40.2021 |
++----------------------+-----------+
+

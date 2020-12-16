@@ -1,0 +1,36 @@
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+CPU type:	Intel Kabylake processor
+CPU clock:	2.71 GHz
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Group 1: CYCLE_STALLS
++-----------------------------------+---------+-------------+
+|               Event               | Counter |    Core 1   |
++-----------------------------------+---------+-------------+
+|         INSTR_RETIRED_ANY         |  FIXC0  | 14204529946 |
+|       CPU_CLK_UNHALTED_CORE       |  FIXC1  | 10360394367 |
+|        CPU_CLK_UNHALTED_REF       |  FIXC2  |  9098115561 |
+|  CYCLE_ACTIVITY_STALLS_L2_PENDING |   PMC0  |    67200844 |
+| CYCLE_ACTIVITY_STALLS_LDM_PENDING |   PMC1  |  1902792755 |
+| CYCLE_ACTIVITY_STALLS_L1D_PENDING |   PMC2  |    70776499 |
+|    CYCLE_ACTIVITY_STALLS_TOTAL    |   PMC3  |  2412749106 |
++-----------------------------------+---------+-------------+
+
++----------------------------------------+------------+
+|                 Metric                 |   Core 1   |
++----------------------------------------+------------+
+|           Runtime (RDTSC) [s]          |     3.3939 |
+|          Runtime unhalted [s]          |     3.8204 |
+|               Clock [MHz]              |  3088.1379 |
+|                   CPI                  |     0.7294 |
+|         Total execution stalls         | 2412749106 |
+|     Stalls caused by L1D misses [%]    |     2.9334 |
+|     Stalls caused by L2 misses [%]     |     2.7852 |
+|    Stalls caused by memory loads [%]   |    78.8641 |
+|        Execution stall rate [%]        |    23.2882 |
+|  Stalls caused by L1D misses rate [%]  |     0.6831 |
+|   Stalls caused by L2 misses rate [%]  |     0.6486 |
+| Stalls caused by memory loads rate [%] |    18.3660 |
++----------------------------------------+------------+
+
