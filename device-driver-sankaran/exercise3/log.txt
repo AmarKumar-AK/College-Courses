@@ -1,0 +1,14 @@
+--2021-02-07 22:50:03--  https://github.com/AmarKumar-AK
+Resolving github.com (github.com)... 13.234.210.38
+Connecting to github.com (github.com)|13.234.210.38|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘AmarKumar-AK.9.html’
+
+     0K .......... .......... .......... .......... ..........  139K
+    50K .......... .......... .......... .......... .......... 86.6K
+   100K .......... .......... .......... .......... ..........  102K
+   150K ..........                                             67.8K=1.6s
+
+2021-02-07 22:50:05 (101 KB/s) - ‘AmarKumar-AK.9.html’ saved [164810]
+

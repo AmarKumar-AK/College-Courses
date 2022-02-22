@@ -1,0 +1,1 @@
+cmd_/home/amar/Desktop/dd/lab5/amarkumar.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id=sha1  -T ./scripts/module-common.lds -o /home/amar/Desktop/dd/lab5/amarkumar.ko /home/amar/Desktop/dd/lab5/amarkumar.o /home/amar/Desktop/dd/lab5/amarkumar.mod.o;  true

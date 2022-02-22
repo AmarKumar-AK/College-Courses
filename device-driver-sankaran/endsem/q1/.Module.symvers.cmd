@@ -1,0 +1,1 @@
+cmd_/home/amar/Documents/github/Device-Driver/finalexam/q1/Module.symvers := sed 's/ko$$/o/' /home/amar/Documents/github/Device-Driver/finalexam/q1/modules.order | scripts/mod/modpost -m -a   -o /home/amar/Documents/github/Device-Driver/finalexam/q1/Module.symvers -e -i Module.symvers   -T -

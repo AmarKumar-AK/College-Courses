@@ -1,0 +1,1 @@
+cmd_/home/amar/Documents/github/Device-Driver/finalexam/q1/amarkumar.mod := { echo  /home/amar/Documents/github/Device-Driver/finalexam/q1/amarkumar.o;  echo; } > /home/amar/Documents/github/Device-Driver/finalexam/q1/amarkumar.mod
