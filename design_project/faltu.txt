@@ -1,0 +1,20 @@
+loginButton.SetFont(wx.Font(c.companyButtonFontSize, wx.FONTFAMILY_DEFAULT, 0, 90, underline = False,faceName =""))
+
+
+BackButton = wx.Button(self.upnl, label='Back', pos=(1400, 40),size=(200,50))
+BackButton.SetFont(wx.Font(c.companyButtonFontSize, wx.FONTFAMILY_DEFAULT, 0, 90, underline = False,faceName =""))
+
+ShowAllButton = wx.Button(self.upnl, label='Show All', pos=(20, 50),size=(200,50))
+ShowAllButton.SetFont(wx.Font(c.companyButtonFontSize, wx.FONTFAMILY_DEFAULT, 0, 90, underline = False,faceName =""))
+
+name = wx.StaticText(self.upnl, -1,"Name:",pos=(250,60),size=(300,25))
+name.SetFont(wx.Font(c.companyButtonFontSize, wx.FONTFAMILY_DEFAULT, 0, 90, underline = False,faceName =""))
+wx.SearchCtrl(self.upnl,pos=(350,50),size=(200,40))
+
+state = wx.StaticText(self.upnl, -1,"State/UT:",pos=(600,60),size=(300,25))
+state.SetFont(wx.Font(c.companyButtonFontSize, wx.FONTFAMILY_DEFAULT, 0, 90, underline = False,faceName =""))
+t1 = wx.SearchCtrl(self.upnl,style= wx.TE_PROCESS_ENTER,pos=(750,50),size=(200,40))
+
+msg=wx.StaticText(self.lpnl, -1,"Not available !!", pos=(400,80), size=(300,25))
+msg.SetFont(wx.Font(c.companyButtonFontSize, wx.FONTFAMILY_DEFAULT, 0, 90, underline = False,faceName =""))
+msg.SetForegroundColour((255,0,0))
